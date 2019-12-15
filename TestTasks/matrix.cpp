@@ -167,39 +167,3 @@ int finding_determinant(const Matrix &matrix){
   }
   return determinant;
 }
-
-
-int main(){
-  Matrix first_matrix;
-  first_matrix.Reset(2,3);
-  first_matrix.insert();
-
-  Matrix second_matrix;
-  second_matrix.Reset(3,2);
-  second_matrix.insert();
-
-  std::cout << "Сложение матриц" << '\n';
-  Matrix add_result_matrix;
-  add_result_matrix = first_matrix + second_matrix;
-  add_result_matrix.display();
-
-  std::cout << "Умножение матриц" << '\n';
-  Matrix mult_result_matrix;
-  mult_result_matrix = first_matrix * second_matrix;
-  mult_result_matrix.display();
-
-  std::cout << "Вычитание матриц" << '\n';
-  Matrix sub_result_matrix;
-  sub_result_matrix = first_matrix - second_matrix;
-  sub_result_matrix.display();
-
-  std::cout << "Сравнение" << '\n';
-  if(first_matrix == second_matrix){
-    std::cout << "matrixs are equal" << std::endl;
-  }else{
-    std::cout<<"matrix aren't equal"<<std::endl;
-  }
-
-  std::cout << "Определитель" << std::endl;
-  return 0;
-}
