@@ -142,28 +142,3 @@ bool operator ==(const Matrix& first_matrix, const Matrix& second_matrix){
   }
   return true;
 }
-int finding_determinant(const Matrix &matrix){
-  if(matrix.getNumRows() != matrix.getNumCols()){
-    throw std::invalid_argument("matrix isn't square");
-  }
-  if(matrix.getNumRows() < 1){
-    throw std::out_of_range("matrix doesn't exist");
-  }
-  int k = 1;
-  int determinant;
-  if(matrix.getNumCols() == 1){
-    determinant = matrix.At(0,0);
-  }else if(matrix.getNumCols() == 2){
-    determinant = matrix.At(0,0) * matrix.At(1,1)
-      - matrix.At(1,0) * matrix.At(0,1);
-  }else{
-    Matrix tmp_matrix(matrix.getNumRows() - 1, matrix.getNumCols() - 1);
-    for(size_t i = 0; i < matrix.getNumCols(); i++){
-      for(size_t j = 0; j < matrix.getNumCols(); j++){
-        determinant += k * matrix.At(i,0) * finding_determinant(tmp_matrix);
-        k = -k;
-      }
-    }
-  }
-  return determinant;
-}
